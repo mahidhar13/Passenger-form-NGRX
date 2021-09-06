@@ -1,0 +1,26 @@
+<h3>Summary:</h3>
+<p>Last Name is <b>{{summary?.lastName}}</b></p>
+<p>First Name is <b>{{summary?.firstName}}</b></p>
+<p>Address is <b>{{summary?.address}}</b></p>
+<p>Email is <b>{{summary?.email}}</b></p>
+<p>Phone Number is <b>{{summary?.phoneNumber}}</b></p>
+
+<h2>Payment Details Form:</h2>
+
+<form [formGroup]="payementDetailsForm">
+  <label for="cCard">Credit card number:</label>
+  <input type="text" id="cCard" formControlName = "creditCard" /><br><br>
+  <span style="color:red" *ngIf="payementDetailsForm.get('creditCard').hasError('required') && payementDetailsForm.get('creditCard').touched"> Credit card number is required</span><br>
+  <span style="color:red" *ngIf="payementDetailsForm.get('creditCard').hasError('range') && payementDetailsForm.get('creditCard').dirty"> Credit card number must be 16 characters</span><br>
+
+  <label for="eDate">Expiration Date: </label>
+  <input type="date" id="eDate" formControlName = "expiryDate" /><br><br>
+  <span style="color:red" *ngIf="payementDetailsForm.get('expiryDate').hasError('required') && payementDetailsForm.get('expiryDate').touched">Expiry date is required</span><br>
+
+  <label for="cva">CVA: </label>
+  <input type="text" id="cva" formControlName = "cva" /><br><br>
+  <span style="color:red" *ngIf="payementDetailsForm.get('cva').hasError('required') && payementDetailsForm.get('cva').touched">CVA is required</span><br>
+  <span style="color:red" *ngIf="payementDetailsForm.get('cva').hasError('range') && payementDetailsForm.get('cva').dirty"> Credit card number must be 16 characters</span><br>
+
+  <button (click) = "continue()" [disabled] = "!payementDetailsForm.valid">Continue</button>
+  <button (click) = "reset()">Reset</button>
