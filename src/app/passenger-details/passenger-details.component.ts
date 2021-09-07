@@ -61,15 +61,17 @@ export class PassengerDetailsComponent implements OnInit {
   }
   saveForm() {
     this.passengerFormValues = this.addPassengersForm.value;
-    console.log('in saveform comp1', this.passengerFormValues.lastName);
-    let passengerDetails: IPassengerDetails = {
+    console.log('in passenger form', this.passengerFormValues.lastName);
+    let passengerValues: IPassengerDetails = {
       lastName: this.passengerFormValues.lastName,
       firstName: this.passengerFormValues.firstName,
       address: this.passengerFormValues.address,
       email: this.passengerFormValues.email,
       phoneNumber: this.passengerFormValues.phoneNumber
     };
-    this.store.dispatch(setPassengerDetails(passengerDetails));
+    this.store.dispatch(
+      setPassengerDetails({ passengerDetails: passengerValues })
+    );
   }
   continue() {
     // this.passengerInfoService.setFormValues(this.passengerFormValues);

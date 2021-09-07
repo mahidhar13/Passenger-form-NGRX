@@ -10,11 +10,11 @@ const initialState: IPassengerDetails = null;
 const _passengerDetailsReducer = createReducer(
   initialState,
 
-  on(setPassengerDetails, (state, action) => action.passengerDetails),
+  on(setPassengerDetails, (state, payload) => payload.passengerDetails),
 
   on(resetPassengerDetails, state => null)
 );
 
-export function passengerDetailsReducer(state, action) {
-  return _passengerDetailsReducer(state, action);
+export function passengerDetailsReducer(state, payload) {
+  return _passengerDetailsReducer(state, payload);
 }

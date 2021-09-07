@@ -9,11 +9,11 @@ const initialState: IPaymentDetails = null;
 
 const _paymentDetailsReducer = createReducer(
   initialState,
-  on(setPaymentDetails, (state, action) => action.paymentDetails),
+  on(setPaymentDetails, (state, payload) => payload.paymentDetails),
 
   on(resetPaymentDetails, state => null)
 );
 
-export function paymentDetailsReducer(state, action) {
-  return _paymentDetailsReducer(state, action);
+export function paymentDetailsReducer(state, payload) {
+  return _paymentDetailsReducer(state, payload);
 }

@@ -64,12 +64,12 @@ export class PaymentDetailsComponent implements OnInit {
       window.alert('Payment details are saved successfully');
     }
 
-    let paymentDetails: IPaymentDetails = {
+    let paymentValues: IPaymentDetails = {
       creditCard: this.paymentFormValues.creditCard,
       expiryDate: this.paymentFormValues.expiryDate,
       cva: this.paymentFormValues.cva
     };
-    this.store.dispatch(setPaymentDetails({ paymentDetails }));
+    this.store.dispatch(setPaymentDetails({ paymentDetails: paymentValues }));
   }
 
   reset() {
